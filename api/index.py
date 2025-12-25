@@ -6,11 +6,7 @@ app = Flask(__name__, static_folder='static')
 
 @app.route('/')
 def index():
-    return send_from_directory('static', 'index.html')
-
-@app.route('/<path:path>')
-def static_files(path):
-    return send_from_directory('static', path)
+    return "API is running"
 
 @app.route('/api/simulate', methods=['POST'])
 def simulate():
