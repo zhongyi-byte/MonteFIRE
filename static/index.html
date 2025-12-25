@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>退休模拟器</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🔥 退休模拟器</h1>
+            <p>财务独立，提前退休 (Financial Independence, Retire Early) - 蒙特卡洛模拟</p>
+        </header>
+
+        <main>
+            <aside class="sidebar">
+                <h2>参数设置</h2>
+                <form id="simForm">
+                    <div class="input-group">
+                        <label>当前年龄 (岁)</label>
+                        <input type="number" id="current_age" value="25">
+                    </div>
+                    <div class="input-group">
+                        <label>预期寿命 (岁)</label>
+                        <input type="number" id="life_expectancy" value="90">
+                    </div>
+                    <div class="input-group">
+                        <label>当前储蓄 (万)</label>
+                        <input type="number" id="current_assets" value="100">
+                    </div>
+                    <div class="input-group">
+                        <label>税后年收入 (万)</label>
+                        <input type="number" id="annual_income" value="56">
+                    </div>
+                    <div class="input-group">
+                        <label>年支出 (万)</label>
+                        <input type="number" id="annual_expense" value="12">
+                    </div>
+                    <div class="input-group">
+                        <label>退休后被动收入 (万/年)</label>
+                        <input type="number" id="post_retirement_income" value="5">
+                    </div>
+
+                    <hr>
+
+                    <div class="input-group">
+                        <label>模拟次数 (N)</label>
+                        <input type="number" id="simulations" value="1000">
+                    </div>
+
+                    <button type="submit" id="runBtn">开始模拟</button>
+                </form>
+            </aside>
+
+            <section class="results">
+                <div class="chart-container">
+                    <h3>破产概率 vs 退休年龄</h3>
+                    <canvas id="ruinChart"></canvas>
+                </div>
+
+                <div class="chart-container">
+                    <h3>资产走势预测 (基于推荐退休年龄 <span class="info-icon" data-tooltip="推荐退休年龄定义为破产率低于 5% 的最早年龄">ⓘ</span>)</h3>
+                    <canvas id="assetChart"></canvas>
+                </div>
+
+                <div class="charts-grid">
+                    <div class="chart-container small">
+                        <h3>30 岁退休资产走势</h3>
+                        <canvas id="assetChart30"></canvas>
+                    </div>
+                    <div class="chart-container small">
+                        <h3>40 岁退休资产走势</h3>
+                        <canvas id="assetChart40"></canvas>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
